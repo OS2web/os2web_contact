@@ -1,0 +1,31 @@
+# OS2Web Contact routing definition
+entity.os2web_contact.collection:
+  title: OS2Web Contact
+  route_name: entity.os2web_contact.collection
+  base_route: system.admin_content
+
+os2web_contact.settings_tab:
+  route_name: os2web_contact.settings
+  title: 'Settings'
+  base_route: os2web_contact.settings
+
+entity.os2web_contact.canonical:
+  route_name: entity.os2web_contact.canonical
+  base_route: entity.os2web_contact.canonical
+  title: 'View'
+
+entity.os2web_contact.edit_form:
+  route_name: entity.os2web_contact.edit_form
+  base_route: entity.os2web_contact.canonical
+  title: 'Edit'
+
+entity.os2web_contact.version_history:
+  route_name: entity.os2web_contact.version_history
+  base_route: entity.os2web_contact.canonical
+  title: 'Revisions'
+
+entity.os2web_contact.delete_form:
+  route_name:  entity.os2web_contact.delete_form
+  base_route:  entity.os2web_contact.canonical
+  title: Delete
+  weight: 10

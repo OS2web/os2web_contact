@@ -1,0 +1,14 @@
+
+# OS2Web Contact menu items definition
+entity.os2web_contact.collection:
+  title: 'OS2Web Contact'
+  route_name: entity.os2web_contact.collection
+  description: 'List OS2Web Contact entities'
+  parent: system.admin_content
+  weight: 100
+
+os2web_contact.admin.structure.settings:
+  title: 'OS2Web Contact'
+  description: 'Configure OS2Web Contact entities'
+  route_name: os2web_contact.settings
+  parent: system.admin_structure

@@ -1,0 +1,90 @@
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_heading
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_butt
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_head
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_text
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_more
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_text
+  module:
+    - os2web_contact
+    - text
+    - user
+id: os2web_contact.os2web_contact.default
+targetEntityType: os2web_contact
+bundle: os2web_contact
+mode: default
+content:
+  field_os2web_contact_heading:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_os2web_contact_modal:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_os2web_contact_modal_butt:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_os2web_contact_modal_head:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_os2web_contact_modal_text:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_os2web_contact_more:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_os2web_contact_text:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

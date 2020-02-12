@@ -1,0 +1,31 @@
+add os2web contact entities:
+  title: 'Create new OS2Web Contact entities'
+
+administer os2web contact entities:
+  title: 'Administer OS2Web Contact entities'
+  description: 'Allow to access the administration form to configure OS2Web Contact entities.'
+  restrict access: true
+
+delete os2web contact entities:
+  title: 'Delete OS2Web Contact entities'
+
+edit os2web contact entities:
+  title: 'Edit OS2Web Contact entities'
+
+view published os2web contact entities:
+  title: 'View published OS2Web Contact entities'
+
+view unpublished os2web contact entities:
+  title: 'View unpublished OS2Web Contact entities'
+
+view all os2web contact revisions:
+  title: 'View all OS2Web Contact revisions'
+
+revert all os2web contact revisions:
+  title: 'Revert all OS2Web Contact revisions'
+  description: 'Role requires permission <em>view OS2Web Contact revisions</em> and <em>edit rights</em> for os2web contact entities in question or <em>administer os2web contact entities</em>.'
+
+delete all os2web contact revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view OS2Web Contact revisions</em> and <em>delete rights</em> for os2web contact entities in question or <em>administer os2web contact entities</em>.'
+
