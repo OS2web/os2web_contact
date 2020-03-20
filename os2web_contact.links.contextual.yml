@@ -1,0 +1,5 @@
+entity.os2web_contact.edit_form:
+  route_name: entity.os2web_contact.edit_form
+  group: os2web_contact
+  title: Edit
+
