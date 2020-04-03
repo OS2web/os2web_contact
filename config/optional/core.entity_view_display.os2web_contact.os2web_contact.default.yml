@@ -6,9 +6,9 @@ dependencies:
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_butt
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_head
-    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_text
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_body
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_more
-    - field.field.os2web_contact.os2web_contact.field_os2web_contact_text
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_body
   module:
     - os2web_contact
     - text
@@ -50,7 +50,7 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2web_contact_modal_text:
+  field_os2web_contact_modal_body:
     weight: 7
     label: hidden
     settings: {  }
@@ -64,7 +64,7 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2web_contact_text:
+  field_os2web_contact_body:
     weight: 2
     label: hidden
     settings: {  }

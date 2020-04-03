@@ -5,7 +5,6 @@ dependencies:
     - field.storage.os2web_contact.field_os2web_contact_heading
   module:
     - os2web_contact
-    - text
 id: os2web_contact.os2web_contact.field_os2web_contact_heading
 field_name: field_os2web_contact_heading
 entity_type: os2web_contact
@@ -17,4 +16,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string

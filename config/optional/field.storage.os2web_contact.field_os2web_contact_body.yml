@@ -4,8 +4,8 @@ dependencies:
   module:
     - os2web_contact
     - text
-id: os2web_contact.field_os2web_contact_text
-field_name: field_os2web_contact_text
+id: os2web_contact.field_os2web_contact_body
+field_name: field_os2web_contact_body
 entity_type: os2web_contact
 type: text_long
 settings: {  }

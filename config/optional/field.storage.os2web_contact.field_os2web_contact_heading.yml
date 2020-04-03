@@ -3,13 +3,15 @@ status: true
 dependencies:
   module:
     - os2web_contact
-    - text
 id: os2web_contact.field_os2web_contact_heading
 field_name: field_os2web_contact_heading
 entity_type: os2web_contact
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

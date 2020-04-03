@@ -9,7 +9,7 @@ id: os2web_contact.os2web_contact.field_os2web_contact_modal
 field_name: field_os2web_contact_modal
 entity_type: os2web_contact
 bundle: os2web_contact
-label: 'Popup tekst'
+label: 'Vis popup knap'
 description: ''
 required: false
 translatable: false
