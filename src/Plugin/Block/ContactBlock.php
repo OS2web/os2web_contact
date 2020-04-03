@@ -49,4 +49,10 @@ class ContactBlock extends BlockBase {
     return $block;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0;
+  }
 }
