@@ -1,6 +1,6 @@
 # OS2Web Contact routing definition
 entity.os2web_contact.collection:
-  title: OS2Web Contact
+  title: Contact
   route_name: entity.os2web_contact.collection
   base_route: system.admin_content
 
