@@ -1,5 +1,5 @@
 entity.os2web_contact.add_form:
   route_name: entity.os2web_contact.add_form
-  title: 'Add OS2Web Contact'
+  title: 'Add Contact'
   appears_on:
     - entity.os2web_contact.collection

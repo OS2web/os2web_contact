@@ -17,7 +17,7 @@ class ContactListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('OS2Web Contact ID');
+    $header['id'] = $this->t('Contact ID');
     $header['name'] = $this->t('Name');
     return $header + parent::buildHeader();
   }

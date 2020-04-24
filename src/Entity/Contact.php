@@ -18,7 +18,7 @@ use Drupal\user\UserInterface;
  *
  * @ContentEntityType(
  *   id = "os2web_contact",
- *   label = @Translation("OS2Web Contact"),
+ *   label = @Translation("Contact"),
  *   handlers = {
  *     "storage" = "Drupal\os2web_contact\ContactStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
