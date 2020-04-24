@@ -1,0 +1,17 @@
+langcode: da
+status: true
+dependencies: {  }
+id: os2web_contact
+label: 'OS2web Contact'
+description: ''
+folder: modules/contrib/os2web_contact/config/optional
+module: {  }
+theme: {  }
+blacklist:
+  - 'os2web_contact*'
+  - '*os2web_contact'
+  - '*os2web_contact*'
+graylist: {  }
+graylist_dependents: false
+graylist_skip_equal: false
+weight: 0
