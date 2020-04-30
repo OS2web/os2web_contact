@@ -1,6 +1,8 @@
 langcode: da
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - config_split
 id: os2web_contact
 label: 'OS2web Contact'
 description: ''
