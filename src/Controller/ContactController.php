@@ -5,6 +5,7 @@ namespace Drupal\os2web_contact\Controller;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\os2web_contact\Entity\ContactInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -118,13 +119,13 @@ class ContactController extends ControllerBase implements ContainerInjectionInte
         // Use revision link to link to revisions that are not active.
         $date = $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short');
         if ($vid != $os2web_contact->getRevisionId()) {
-          $link = $this->l($date, new Url('entity.os2web_contact.revision', [
+          $link = Link::fromTextAndUrl($date, new Url('entity.os2web_contact.revision', [
             'os2web_contact' => $os2web_contact->id(),
             'os2web_contact_revision' => $vid,
           ]));
         }
         else {
-          $link = $os2web_contact->link($date);
+          $link = $os2web_contact->toLink($date);
         }
 
         $row = [];
