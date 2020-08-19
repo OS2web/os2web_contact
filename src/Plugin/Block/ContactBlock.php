@@ -59,4 +59,5 @@ class ContactBlock extends BlockBase {
   public function getCacheMaxAge() {
     return 0;
   }
+
 }
