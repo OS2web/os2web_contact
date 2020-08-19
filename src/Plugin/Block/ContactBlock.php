@@ -27,6 +27,10 @@ class ContactBlock extends BlockBase {
       /** @var \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent $menuLink */
       $menuLink = \Drupal::service('plugin.manager.menu.link')->createInstance($id);
       $urlObject = $menuLink->getUrlObject();
+      // Skipping external link menu items.
+      if ($urlObject->isExternal()) {
+        continue;
+      }
       $routeName = $urlObject->getRouteName();
       $routeParams = $urlObject->getRouteParameters();
       if ($routeName == 'entity.node.canonical') {
