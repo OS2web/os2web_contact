@@ -40,6 +40,11 @@ class ContactBlock extends BlockBase {
 
         $links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $node->id()]);
 
+        // No links, meaning we cannot fetch any parent.
+        if (empty($links)) {
+          return NULL;
+        }
+
         // Getting current menu link.
         $activeLink = end($links);
         $parentLinkId = $activeLink->getParent();
