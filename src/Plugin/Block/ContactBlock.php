@@ -54,6 +54,7 @@ class ContactBlock extends BlockBase {
           /** @var \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent $parentLink */
           $parentLink = $menu_link_manager->createInstance($parentLinkId);
           $urlObject = $parentLink->getUrlObject();
+          $parentLinkId = $parentLink->getParent();
 
           // Skipping external link menu items.
           if ($urlObject->isExternal()) {
@@ -76,7 +77,6 @@ class ContactBlock extends BlockBase {
             }
           }
 
-          $parentLinkId = $parentLink->getParent();
         }
       }
     }
