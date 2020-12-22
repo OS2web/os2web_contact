@@ -10,7 +10,7 @@ id: os2web_contact.os2web_contact.field_os2web_contact_more
 field_name: field_os2web_contact_more
 entity_type: os2web_contact
 bundle: os2web_contact
-label: 'Mere tekst'
+label: 'Yderligere kontakt info'
 description: ''
 required: false
 translatable: true

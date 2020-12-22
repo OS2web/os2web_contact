@@ -129,5 +129,12 @@ function os2web_contact_update_8001() {
     'field_os2web_contact_heading' => 'content.field_os2web_contact_heading',
     'field_os2web_contact_modal_head' => 'content.field_os2web_contact_modal_head',
   ]);
+}
 
+/**
+ * Renaming texts fields.
+ */
+function os2web_contact_update_8002() {
+  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_body');
+  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_more');
 }
