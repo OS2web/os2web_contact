@@ -143,24 +143,33 @@ function os2web_contact_update_8002() {
  * Adding phone and email fields.
  */
 function os2web_contact_update_8003() {
-  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_phone');
-  os2web_contact_read_in_new_config('field.storage.os2web_contact.field_os2web_contact_phone');
-  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_email');
-  os2web_contact_read_in_new_config('field.storage.os2web_contact.field_os2web_contact_email');
+  $fields = [
+    'field_os2web_contact_phone',
+    'field_os2web_contact_email',
+  ];
+  $entity_type = 'os2web_contact';
+  $entity_bundle = 'os2web_contact';
+  $path = drupal_get_path('module', 'os2web_contact');
 
-  os2web_contact_update_entity_from_yml(
-    'core.entity_form_display.os2web_contact.os2web_contact.default',
-    'entity_form_display',
-    'os2web_contact.os2web_contact.default', [
-    'field_os2web_contact_phone' => 'content.field_os2web_contact_phone',
-    'field_os2web_contact_email' => 'content.field_os2web_contact_email',
-  ]);
+  foreach ($fields as $field_name) {
+    // Create field storage.
+    $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.storage.' . $entity_type . '.' . $field_name . '.yml'));
+    if (!FieldStorageConfig::loadByName($entity_type, $field_name)) {
+      FieldStorageConfig::create($field_storage_yml)->save();
+    }
+    // Create field instance.
+    $field_instance_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.field.' . $entity_type . '.' . $entity_bundle . '.' . $field_name . '.yml'));
+    if (!FieldConfig::loadByName($entity_type, $entity_bundle, $field_name)) {
+      FieldConfig::create($field_instance_yml)->save();
+    }
 
-  os2web_contact_update_entity_from_yml(
-    'core.entity_view_display.os2web_contact.os2web_contact.default',
-    'entity_view_display',
-    'os2web_contact.os2web_contact.default', [
-    'field_os2web_contact_phone' => 'content.field_os2web_contact_phone',
-    'field_os2web_contact_email' => 'content.field_os2web_contact_email',
-  ]);
+    // Applying form/view_display settings based on config in yml files.
+    $components = [
+      $field_name => 'content.' . $field_name,
+      'hidden' => 'hidden',
+    ];
+    $yaml_id = $entity_type . '.' . $entity_bundle . '.default';
+    os2web_contact_update_entity_from_yml('core.entity_form_display.' . $yaml_id, 'entity_form_display', $yaml_id, $components);
+    os2web_contact_update_entity_from_yml('core.entity_view_display.' . $yaml_id, 'entity_view_display', $yaml_id, $components);
+  }
 }
