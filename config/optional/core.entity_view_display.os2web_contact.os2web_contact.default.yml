@@ -3,12 +3,14 @@ status: true
 dependencies:
   config:
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_body
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_email
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_heading
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_body
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_butt
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_modal_head
     - field.field.os2web_contact.os2web_contact.field_os2web_contact_more
+    - field.field.os2web_contact.os2web_contact.field_os2web_contact_phone
   module:
     - os2web_contact
     - text
@@ -25,12 +27,20 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2web_contact_heading:
-    weight: 1
+  field_os2web_contact_email:
+    weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: email_mailto
+    region: content
+  field_os2web_contact_heading:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_os2web_contact_modal:
     weight: 4
@@ -60,9 +70,10 @@ content:
   field_os2web_contact_modal_head:
     weight: 6
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_default
+    type: string
     region: content
   field_os2web_contact_more:
     weight: 3
@@ -70,6 +81,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_os2web_contact_phone:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   name:
     label: hidden
@@ -88,3 +107,4 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  search_api_excerpt: true

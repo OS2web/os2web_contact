@@ -138,3 +138,29 @@ function os2web_contact_update_8002() {
   os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_body');
   os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_more');
 }
+
+/**
+ * Adding phone and email fields.
+ */
+function os2web_contact_update_8003() {
+  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_phone');
+  os2web_contact_read_in_new_config('field.storage.os2web_contact.field_os2web_contact_phone');
+  os2web_contact_read_in_new_config('field.field.os2web_contact.os2web_contact.field_os2web_contact_email');
+  os2web_contact_read_in_new_config('field.storage.os2web_contact.field_os2web_contact_email');
+
+  os2web_contact_update_entity_from_yml(
+    'core.entity_form_display.os2web_contact.os2web_contact.default',
+    'entity_form_display',
+    'os2web_contact.os2web_contact.default', [
+    'field_os2web_contact_phone' => 'content.field_os2web_contact_phone',
+    'field_os2web_contact_email' => 'content.field_os2web_contact_email',
+  ]);
+
+  os2web_contact_update_entity_from_yml(
+    'core.entity_view_display.os2web_contact.os2web_contact.default',
+    'entity_view_display',
+    'os2web_contact.os2web_contact.default', [
+    'field_os2web_contact_phone' => 'content.field_os2web_contact_phone',
+    'field_os2web_contact_email' => 'content.field_os2web_contact_email',
+  ]);
+}
