@@ -24,7 +24,7 @@ class ContactBlock extends BlockBase {
     $contact_entity = NULL;
 
     $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node && $node->bundle() == 'os2web_page') {
+    if ($node instanceof NodeInterface && $node->getType() == 'os2web_page') {
       // Checking visibility.
       if (!$this->checkContactBlockVisible($node)) {
         return NULL;
