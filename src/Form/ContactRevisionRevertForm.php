@@ -87,7 +87,7 @@ class ContactRevisionRevertForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $os2web_contact_revision = NULL) {
-    $this->revision = $this->ContactStorage->loadRevision($os2web_contact_revision);
+    $this->revision = $this->contactStorage->loadRevision($os2web_contact_revision);
     $form = parent::buildForm($form, $form_state);
 
     return $form;
