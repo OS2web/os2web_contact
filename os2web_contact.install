@@ -5,6 +5,8 @@
  * Install, uninstall and update hooks for os2web_contact module.
  */
 
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
 use Drupal\field\Entity\FieldConfig;
@@ -171,5 +173,37 @@ function os2web_contact_update_8003() {
     $yaml_id = $entity_type . '.' . $entity_bundle . '.default';
     os2web_contact_update_entity_from_yml('core.entity_form_display.' . $yaml_id, 'entity_form_display', $yaml_id, $components);
     os2web_contact_update_entity_from_yml('core.entity_view_display.' . $yaml_id, 'entity_view_display', $yaml_id, $components);
+  }
+}
+
+/**
+ * Renaming $revision_metadata_keys to D9 defaults.
+ */
+function os2web_contact_update_8004() {
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Add the published entity key and revisionable metadata fields to the
+  // os2web_contact entity type.
+  $entity_type = $definition_update_manager->getEntityType('os2web_contact');
+  $entity_type_id = $entity_type->id();
+
+  $revision_log_message = BaseFieldDefinition::create('string_long')
+    ->setLabel(t('Revision log message'))
+    ->setDescription(t('Briefly describe the changes you have made.'))
+    ->setRevisionable(TRUE)
+    ->setDefaultValue('')
+    ->setDisplayOptions('form', [
+      'type' => 'string_textarea',
+      'weight' => 25,
+      'settings' => [
+        'rows' => 4,
+      ],
+    ]);
+
+  $definition_update_manager->installFieldStorageDefinition('revision_log_message', $entity_type_id, $entity_type_id, $revision_log_message);
+
+  $old_field_storage_definition = $definition_update_manager->getFieldStorageDefinition('revision_log', 'os2web_contact');
+  if ($old_field_storage_definition instanceof FieldStorageDefinitionInterface) {
+    $definition_update_manager->uninstallFieldStorageDefinition($old_field_storage_definition);
   }
 }
