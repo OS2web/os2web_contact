@@ -212,6 +212,9 @@ function os2web_contact_update_8004() {
  * Adding os2web_contact_open_hours field.
  */
 function os2web_contact_update_8005() {
+  // Enabling the module.
+  \Drupal::service('module_installer')->install(['office_hours']);
+
   $fields = [
     'field_os2web_contact_open_hours',
   ];
