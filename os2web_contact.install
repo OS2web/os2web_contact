@@ -207,3 +207,28 @@ function os2web_contact_update_8004() {
     $definition_update_manager->uninstallFieldStorageDefinition($old_field_storage_definition);
   }
 }
+
+/**
+ * Adding os2web_contact_open_hours field.
+ */
+function os2web_contact_update_8005() {
+  $fields = [
+    'field_os2web_contact_open_hours',
+  ];
+  $entity_type = 'os2web_contact';
+  $entity_bundle = 'os2web_contact';
+  $path = drupal_get_path('module', 'os2web_contact');
+
+  foreach ($fields as $field_name) {
+    // Create field storage.
+    $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.storage.' . $entity_type . '.' . $field_name . '.yml'));
+    if (!FieldStorageConfig::loadByName($entity_type, $field_name)) {
+      FieldStorageConfig::create($field_storage_yml)->save();
+    }
+    // Create field instance.
+    $field_instance_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.field.' . $entity_type . '.' . $entity_bundle . '.' . $field_name . '.yml'));
+    if (!FieldConfig::loadByName($entity_type, $entity_bundle, $field_name)) {
+      FieldConfig::create($field_instance_yml)->save();
+    }
+  }
+}
