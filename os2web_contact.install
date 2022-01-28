@@ -260,3 +260,31 @@ function os2web_contact_update_8006() {
     }
   }
 }
+
+/**
+ * Adding field_os2web_contact_facebook, os2web_contact_website fields.
+ */
+function os2web_contact_update_8007() {
+  $fields = [
+    'field_os2web_contact_facebook',
+    'field_os2web_contact_website'
+  ];
+  $entity_type = 'os2web_contact';
+  $entity_bundle = 'os2web_contact';
+  $path = drupal_get_path('module', 'os2web_contact');
+
+  foreach ($fields as $field_name) {
+    // Create field storage.
+    $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.storage.' . $entity_type . '.' . $field_name . '.yml'));
+    if (!FieldStorageConfig::loadByName($entity_type, $field_name)) {
+      FieldStorageConfig::create($field_storage_yml)->save();
+    }
+    // Create field instance.
+    $field_instance_yml = Yaml::parse(file_get_contents($path . '/config/optional/field.field.' . $entity_type . '.' . $entity_bundle . '.' . $field_name . '.yml'));
+    if (!FieldConfig::loadByName($entity_type, $entity_bundle, $field_name)) {
+      FieldConfig::create($field_instance_yml)->save();
+    }
+  }
+}
+
+
