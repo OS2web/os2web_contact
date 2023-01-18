@@ -19,6 +19,8 @@ class ContactListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['id'] = $this->t('Contact ID');
     $header['name'] = $this->t('Name');
+    $header['status'] = $this->t('Published');
+
     return $header + parent::buildHeader();
   }
 
@@ -33,6 +35,8 @@ class ContactListBuilder extends EntityListBuilder {
       'entity.os2web_contact.edit_form',
       ['os2web_contact' => $entity->id()]
     );
+    $row['status'] = ($entity->status[0]->value ? $this->t('yes'):$this->t('no'));
+
     return $row + parent::buildRow($entity);
   }
 
